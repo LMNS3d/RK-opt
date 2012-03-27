@@ -208,6 +208,9 @@ for i = 0:length(gamma)-1 % loop over coefficients of the monomial basis
         for n = 0:i-1 % product (j-n)
             pr = pr*(j-n);
         end
+        if (gamma(j+1) < 0.0)
+            gamma(j+1) = 0.0;
+        end
         sm = sm + gamma(j+1)*pr; 
     end
     a(i+1) = 1/(factorial(i)*R^i)*sm;
